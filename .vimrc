@@ -13,3 +13,5 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'vim-scripts/upAndDown'
 
 filetype plugin indent on
+
+set t_Co=256
