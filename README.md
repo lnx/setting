@@ -1,4 +1,0 @@
-settings
-========
-
-Personal dev settings.
