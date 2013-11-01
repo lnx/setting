@@ -20,5 +20,5 @@ autocmd FileType python setlocal et sta sw=4 sts=4
 
 "Map Config
 map <F2> :NERDTreeToggle<CR>
-map <F5> :!/usr/bin/python %<CR>
+map <F5> :!/usr/bin/env python %<CR>
 
