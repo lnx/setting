@@ -1,6 +1,11 @@
 {
+	"color_scheme": "Packages/User/Monokai (SL).tmTheme",
+	"default_line_ending": "unix",
+	"ensure_newline_at_eof_on_save": true,
 	"font_size": 10,
-	"ignored_packages": [],
-	"vintage_start_in_command_mode": true,
-	"color_scheme": "Packages/User/Monokai (SL).tmTheme"
+	"ignored_packages":
+	[
+	],
+	"trim_trailing_white_space_on_save": true,
+	"vintage_start_in_command_mode": true
 }
