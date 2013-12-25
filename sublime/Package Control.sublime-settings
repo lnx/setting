@@ -3,6 +3,7 @@
 	[
 		"JsFormat",
 		"SublimeLinter",
+		"SublimeLinter-jshint",
 		"Tag",
 		"Text Pastry"
 	]
