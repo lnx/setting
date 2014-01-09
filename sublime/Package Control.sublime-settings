@@ -1,7 +1,6 @@
 {
 	"installed_packages":
 	[
-		"JsFormat",
 		"SublimeLinter",
 		"SublimeLinter-jshint",
 		"Tag",
