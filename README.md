@@ -1,5 +1,1 @@
-settings
-========
-
-Personal dev settings.
-
+Personal development environment
