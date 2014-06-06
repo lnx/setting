@@ -1,9 +1,0 @@
-{
-	"installed_packages":
-	[
-		"SublimeLinter",
-		"SublimeLinter-jshint",
-		"Tag",
-		"Text Pastry"
-	]
-}
