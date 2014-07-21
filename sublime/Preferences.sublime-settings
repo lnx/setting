@@ -3,7 +3,7 @@
     "default_line_ending": "unix",
     "ensure_newline_at_eof_on_save": true,
     "font_size": 11,
-    "ignored_packages": ["Vintage"],
+    "ignored_packages": [],
     "scroll_past_end": true,
     "tab_size": 4,
     "translate_tabs_to_spaces":true,
