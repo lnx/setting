@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<project name="buildjars" default="make">
+
+	<property name="remote-server" value="9.123.96.187" />
+	<property name="userid" value="zhaolong" />
+	<property name="password" value="passw0rd" />
+	<property name="sandbox" value="zhao" />
+
+	<property name="base.dir" value="./bin" />
+	<property name="jar.dir" value="./jar" />
+	<property name="liberty.sandbox.dir" value="./liberty-sandbox" />
+
+	<target name="make">
+		<delete>
+			<fileset dir="${jar.dir}" includes="*.jar" />
+		</delete>
+		<parallel>
+			<jar destfile="${jar.dir}/AdminExp2.jar">
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/express/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/portal/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/SSL/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/SSL/wizards/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/liberty/forms/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/liberty/wizards/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/lwi/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/lwi/forms/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/lwi/wizards/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/lwi/webservices/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/lwi/webservices/forms/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/lwi/webservices/wizards/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/ws/os400/admin/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/ws/os400/tools/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/wlm/forms/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/wlm/wizard/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/wlm/access/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/permission/**/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/installation/**/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/wpa/**/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/wpa/**/*.html" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/wpa/**/*.js" />
+			</jar>
+			<jar destfile="${jar.dir}/AdminGui2.jar">
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/gui/*.class" />
+			</jar>
+			<jar destfile="${jar.dir}/AdminMRI.jar">
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/mri/*.class" />
+			</jar>
+			<jar destfile="${jar.dir}/AdminToolkit2.jar">
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/access/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/request/**/*.class" />
+				<fileset dir="${base.dir}" includes="com/ibm/as400/httpsvr/toolkit/*.class" />
+			</jar>
+		</parallel>
+	</target>
+
+	<target name="send">
+		<parallel>
+			<ftp server="${remote-server}" remotedir="/www/${sandbox}/wlp/usr/servers/${sandbox}/apps/HTTPAdmin/WEB-INF/lib/" userid="${userid}" password="${password}" separator="/" passive="yes" verbose="yes">
+				<fileset dir="${jar.dir}">
+					<include name="**.jar" />
+				</fileset>
+			</ftp>
+			<ftp server="${remote-server}" remotedir="/www/${sandbox}/wlp/usr/servers/${sandbox}/apps/HTTPAdmin/WEB-INF/lib/" userid="${userid}" password="${password}" separator="/" passive="yes" verbose="yes">
+				<fileset dir="${liberty.sandbox.dir}">
+					<include name="**.jar" />
+				</fileset>
+			</ftp>
+		</parallel>
+	</target>
+
+	<target name="time">
+		<tstamp>
+			<format property="current.time" pattern="MM/dd/yyyy hh:mm:ss" />
+		</tstamp>
+		<echo message="Last built: ${current.time} - ${remote-server}" />
+	</target>
+
+</project>
