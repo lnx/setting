@@ -8,7 +8,7 @@
     "scroll_past_end": true,
     "show_full_path": true,
     "tab_size": 4,
-    "translate_tabs_to_spaces": false,
+    "translate_tabs_to_spaces": true,
     "trim_trailing_white_space_on_save": true,
     "vintage_start_in_command_mode": true,
     "word_wrap": true
