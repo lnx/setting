@@ -1,0 +1,21 @@
+[core]
+    editor = vim
+
+[user]
+    name = lip
+    email = buaastorm@gmail.com
+
+[color]
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+    grep = auto
+    ui = true
+
+[alias]
+    br = branch
+    ci = commit
+    co = checkout
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    st = status
